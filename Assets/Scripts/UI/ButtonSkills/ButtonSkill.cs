@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
-using System.Linq;
 
 public class ButtonSkill : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private ButtonSkillData _data;
     [SerializeField] private ButtonSkill[] _openningSkills;
-    [SerializeField] private Image[] _links;
+    [SerializeField] private Image _linkToNewSkill;
+    [SerializeField] private Image _linkToCurrentSkill;
 
     [Header("Components")]
     [SerializeField] private Image _infoPanel;
@@ -76,10 +76,6 @@ public class ButtonSkill : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         _button.interactable = true;
         _icon.color = Color.white;
         _levelPanel.gameObject.SetActive(true);
-
-        foreach (var link in _links)
-        {
-            link.color = Color.yellow;
-        }
+        _linkToCurrentSkill.color = Color.yellow;
     }
 }
