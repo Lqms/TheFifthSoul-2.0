@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Transition : MonoBehaviour
 {
-
+    [SerializeField] private State _state;
 }

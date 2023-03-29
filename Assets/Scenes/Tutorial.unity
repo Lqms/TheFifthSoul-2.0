@@ -280,6 +280,11 @@ GameObject:
   - component: {fileID: 30913008}
   - component: {fileID: 30913010}
   - component: {fileID: 30913011}
+  - component: {fileID: 30913016}
+  - component: {fileID: 30913015}
+  - component: {fileID: 30913014}
+  - component: {fileID: 30913013}
+  - component: {fileID: 30913012}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -421,6 +426,74 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.76, y: 1.48}
   m_EdgeRadius: 0
+--- !u!114 &30913012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30913005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc818c41f2cbc7e459eb18c660ec8d9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &30913013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30913005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7811eef56536d49b257e2e0f7609c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _state: {fileID: 30913014}
+--- !u!114 &30913014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30913005}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21025bd317e4d1f4ea976889e0a8cb5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transitions:
+  - {fileID: 30913013}
+  _animationName: 1
+--- !u!114 &30913015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30913005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a782de11711d724ab3b37348c161b0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _state: {fileID: 30913016}
+--- !u!114 &30913016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30913005}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad1be557d8c41d428aecf29462c5b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transitions:
+  - {fileID: 30913013}
+  _animationName: 0
 --- !u!1 &287449400
 GameObject:
   m_ObjectHideFlags: 0
