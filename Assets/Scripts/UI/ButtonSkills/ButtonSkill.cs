@@ -9,8 +9,7 @@ public class ButtonSkill : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 {
     [SerializeField] private ButtonSkillData _data;
     [SerializeField] private ButtonSkill[] _openningSkills;
-    [SerializeField] private Image _linkToNewSkill;
-    [SerializeField] private Image _linkToCurrentSkill;
+    [SerializeField] private Image[] _openningLinks;
 
     [Header("Components")]
     [SerializeField] private Image _infoPanel;
@@ -55,6 +54,9 @@ public class ButtonSkill : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             foreach (var skill in _openningSkills)
                 skill.Activate();
 
+            foreach (var link in _openningLinks)
+                link.color = Color.yellow;
+
             _button.interactable = false;
         }
 
@@ -76,6 +78,5 @@ public class ButtonSkill : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         _button.interactable = true;
         _icon.color = Color.white;
         _levelPanel.gameObject.SetActive(true);
-        _linkToCurrentSkill.color = Color.yellow;
     }
 }
