@@ -23,7 +23,7 @@ public class StateMachine : MonoBehaviour
         if (_currentState == null)
             return;
 
-        var nextState = _currentState.GetNextState();
+        var nextState = _currentState.TryGetNextState();
 
         if (nextState != null)
             Transit(nextState);

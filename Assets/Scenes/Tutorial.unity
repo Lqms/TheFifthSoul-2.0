@@ -3806,6 +3806,7 @@ MonoBehaviour:
   - {fileID: 2013849522}
   _rigidbody: {fileID: 30913010}
   _dashPower: 25
+  _player: {fileID: 30913012}
 --- !u!1 &2019510832
 GameObject:
   m_ObjectHideFlags: 0

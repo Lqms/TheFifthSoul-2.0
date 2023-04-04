@@ -55,7 +55,7 @@ public class State : MonoBehaviour
         }
     }
 
-    public State GetNextState()
+    public State TryGetNextState()
     {
         foreach (var transition in _transitions)
         {
