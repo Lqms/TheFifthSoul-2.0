@@ -6,6 +6,7 @@ public class DashState : State
 {
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private float _dashPower = 10;
+    [SerializeField] private Player _player;
 
     protected override void OnEnable()
     {
@@ -17,6 +18,7 @@ public class DashState : State
     private void Dash()
     {
         StartCoroutine(Dashing());
+        _player.StartReloadingDash();
     }
 
     private IEnumerator Dashing()

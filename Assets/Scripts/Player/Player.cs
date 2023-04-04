@@ -8,17 +8,14 @@ public class Player : MonoBehaviour
 
     public bool CanDash { get; private set; } = true;
 
-    private void Update()
+    public void StartReloadingDash()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && CanDash == true)
-        {
+        if (CanDash == true)
             StartCoroutine(DashReloading());
-        }
     }
 
     private IEnumerator DashReloading()
     {
-        yield return new WaitForSeconds(0.01f);
         print("dash start reload");
         CanDash = false;
 
