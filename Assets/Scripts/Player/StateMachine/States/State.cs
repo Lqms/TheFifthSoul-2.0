@@ -19,7 +19,7 @@ public class State : MonoBehaviour
 
     private void Awake()
     {
-        Animator = GetComponent<Animator>();
+        Animator = GetComponentInParent<Animator>();
     }
 
     protected virtual void OnEnable()
