@@ -8,32 +8,36 @@ public class StateMachine : MonoBehaviour
 
     private State _currentState;
 
+    public State CurrentState => _currentState;
+
     private void Start()
     {
         _currentState = _startState;
-        _currentState.enabled = true;
-        _currentState.Enter();
-        _currentState.TransitionConditionCompleted += OnTransitionConditionCompleted;
+
+        if (_currentState != null)
+            _currentState.Enter();
     }
 
-    private void TryChangeState(State state)
+    private void Update()
     {
-        if (state == _currentState)
+        if (_currentState == null)
             return;
 
-        _currentState.TransitionConditionCompleted -= OnTransitionConditionCompleted;
-        _currentState.Exit();
+        var nextState = _currentState.GetNextState();
 
-        _currentState.enabled = false;
-        _currentState = state;
-        _currentState.enabled = true;
+        if (nextState != null)
+            Transit(nextState);
 
-        _currentState.Enter();
-        _currentState.TransitionConditionCompleted += OnTransitionConditionCompleted;
     }
 
-    private void OnTransitionConditionCompleted(State state)
+    private void Transit(State nextState)
     {
-        TryChangeState(state);
+        if (_currentState != null)
+            _currentState.Exit();
+
+        _currentState = nextState;
+
+        if (_currentState != null)
+            _currentState.Enter();
     }
 }
