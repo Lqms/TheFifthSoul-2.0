@@ -329,12 +329,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1458406852, guid: 78e3c2c500337e249a372ed09eb0d7b5, type: 3}
+  m_Sprite: {fileID: -1769284150, guid: 2a6b7650ace93e743acc31163a8d7c41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.76, y: 1.48}
+  m_Size: {x: 0.19, y: 0.37}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -416,7 +416,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.76, y: 1.48}
-    newSize: {x: 0.76, y: 1.48}
+    newSize: {x: 0.19, y: 0.37}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -3224,6 +3224,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetState: {fileID: 2013849524}
   _rigidbody: {fileID: 30913010}
+  _groundMask:
+    serializedVersion: 2
+    m_Bits: 64
+  _legs: {fileID: 2070214836}
+  _legsRadius: 0.2
 --- !u!114 &2013849521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3308,7 +3313,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 2013849520}
   _rigidbody: {fileID: 30913010}
-  _jumpPower: 10
+  _jumpPower: 20
   _speed: 5
 --- !u!114 &2013849526
 MonoBehaviour:
@@ -3762,6 +3767,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1987969415630228632, guid: 2a5c167cc6fddbd4bb794bfa6055372f, type: 3}
+      propertyPath: m_SideArc
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1987969415630228632, guid: 2a5c167cc6fddbd4bb794bfa6055372f, type: 3}
+      propertyPath: m_UseColliderMask
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268049934517645710, guid: 2a5c167cc6fddbd4bb794bfa6055372f, type: 3}
+      propertyPath: m_Size.x
+      value: 3.6925867
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268049934517645710, guid: 2a5c167cc6fddbd4bb794bfa6055372f, type: 3}
+      propertyPath: m_Size.y
+      value: 0.11330235
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268049934517645710, guid: 2a5c167cc6fddbd4bb794bfa6055372f, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.03529179
+      objectReference: {fileID: 0}
+    - target: {fileID: 2268049934517645710, guid: 2a5c167cc6fddbd4bb794bfa6055372f, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.18105751
+      objectReference: {fileID: 0}
     - target: {fileID: 3006310645144282784, guid: 2a5c167cc6fddbd4bb794bfa6055372f, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -3809,6 +3838,26 @@ PrefabInstance:
     - target: {fileID: 3006310645144282785, guid: 2a5c167cc6fddbd4bb794bfa6055372f, type: 3}
       propertyPath: m_Name
       value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006310645144282785, guid: 2a5c167cc6fddbd4bb794bfa6055372f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006310646620810709, guid: 2a5c167cc6fddbd4bb794bfa6055372f, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006310646637143199, guid: 2a5c167cc6fddbd4bb794bfa6055372f, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006310646684860399, guid: 2a5c167cc6fddbd4bb794bfa6055372f, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3006310646964222378, guid: 2a5c167cc6fddbd4bb794bfa6055372f, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a5c167cc6fddbd4bb794bfa6055372f, type: 3}

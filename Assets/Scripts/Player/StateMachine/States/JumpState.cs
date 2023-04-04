@@ -5,7 +5,7 @@ using UnityEngine;
 public class JumpState : State
 {
     [SerializeField] private Rigidbody2D _rigidbody;
-    [SerializeField] private float _jumpPower = 5;
+    [SerializeField] private float _jumpPower = 10;
     [SerializeField] private float _speed = 5;
 
     protected override void OnEnable()
