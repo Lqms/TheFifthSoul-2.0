@@ -7,7 +7,8 @@ public enum AnimationNames
     Idle,
     Run,
     Jump,
-    Falling
+    Falling,
+    Dash
 }
 
 public class State : MonoBehaviour
