@@ -11,13 +11,29 @@ public class StateMachine : MonoBehaviour
     private void Start()
     {
         _currentState = _startState;
+        _currentState.enabled = true;
         _currentState.Enter();
+        _currentState.TransitionConditionCompleted += OnTransitionConditionCompleted;
     }
 
-    private void ChangeState(State state)
+    private void TryChangeState(State state)
     {
+        if (state == _currentState)
+            return;
+
+        _currentState.TransitionConditionCompleted -= OnTransitionConditionCompleted;
         _currentState.Exit();
+
+        _currentState.enabled = false;
         _currentState = state;
+        _currentState.enabled = true;
+
         _currentState.Enter();
+        _currentState.TransitionConditionCompleted += OnTransitionConditionCompleted;
+    }
+
+    private void OnTransitionConditionCompleted(State state)
+    {
+        TryChangeState(state);
     }
 }

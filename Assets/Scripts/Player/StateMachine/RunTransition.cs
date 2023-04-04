@@ -4,5 +4,19 @@ using UnityEngine;
 
 public class RunTransition : Transition
 {
-    
+    private void OnEnable()
+    {
+        PlayerInput.MoveKeyPressing += OnMoveKeyPressing;
+    }
+
+    private void OnDisable()
+    {
+        PlayerInput.MoveKeyPressing -= OnMoveKeyPressing;
+    }
+
+    private void OnMoveKeyPressing(Vector2 direction)
+    {
+        if (direction != Vector2.zero)
+            NeedTransit = true;
+    }
 }

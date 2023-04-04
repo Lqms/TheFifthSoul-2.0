@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum AnimationNames
 {
@@ -14,12 +15,16 @@ public class State : MonoBehaviour
     [SerializeField] private Transition[] _transitions;
     [SerializeField] private AnimationNames _animationName;
 
+    protected Rigidbody2D Rigidbody;
+
     private Animator _animator;
+
+    public event UnityAction<State> TransitionConditionCompleted;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-        enabled = false;
+        Rigidbody = GetComponent<Rigidbody2D>();
     }
 
     public virtual void Enter()
@@ -34,5 +39,17 @@ public class State : MonoBehaviour
     {
         foreach (var transition in _transitions)
             transition.enabled = false;
+    }
+
+    private void Update()
+    {
+        foreach (var transition in _transitions)
+        {
+            if (transition.NeedTransit == true)
+            {
+                TransitionConditionCompleted?.Invoke(transition.State);
+                break;
+            }
+        }
     }
 }

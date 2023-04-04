@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class ButtonSkill : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -40,8 +40,9 @@ public class ButtonSkill : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         _icon.sprite = _data.Icon;
         _header.text = _data.Header;
         _description.text = _data.Description;
-        _currentLevel.text = _currentSkillLevel.ToString();
         _maxLevel = _data.MaxLevel;
+
+        _currentLevel.text = _currentSkillLevel.ToString();
         _infoPanel.gameObject.SetActive(false);
     }
 

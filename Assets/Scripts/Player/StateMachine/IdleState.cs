@@ -4,19 +4,10 @@ using UnityEngine;
 
 public class IdleState : State
 {
-    private void OnEnable()
+    public override void Enter()
     {
-        PlayerInput.MoveKeyPressing += OnMoveKeyPressing;
-    }
+        base.Enter();
 
-    private void OnDisable()
-    {
-        PlayerInput.MoveKeyPressing -= OnMoveKeyPressing;
-    }
-
-    private void OnMoveKeyPressing(Vector2 direction)
-    {
-        var rb = GetComponent<Rigidbody2D>()
-        rb.velocity = new Vector2(direction.x, rb.velocity.y);
+        Rigidbody.velocity = new Vector2(0, Rigidbody.velocity.y);
     }
 }
