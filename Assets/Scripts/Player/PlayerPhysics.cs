@@ -56,7 +56,6 @@ public class PlayerPhysics : MonoBehaviour
     {
         _rigidbody.AddForce(Vector2.right * transform.localScale.x * _dashPower, ForceMode2D.Impulse);
         CanDash = false;
-        print(CanDash);
 
         yield return new WaitForSeconds(0.1f);
 
@@ -65,6 +64,5 @@ public class PlayerPhysics : MonoBehaviour
         yield return new WaitForSeconds(_dashCooldown);
 
         CanDash = true;
-        print(CanDash);
     }
 }

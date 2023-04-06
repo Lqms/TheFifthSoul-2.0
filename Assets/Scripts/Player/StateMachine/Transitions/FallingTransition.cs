@@ -6,9 +6,7 @@ public class FallingTransition : Transition
 {
     private void Update()
     {
-        if (Physics.Velocity.y < 0 && Physics.CheckOnGround() == false)
-        {
+        if (Physics.Velocity.y < 0 && !Physics.CheckOnGround())
             NeedTransit = true;
-        }
     }
 }

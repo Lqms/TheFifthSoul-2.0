@@ -6,14 +6,9 @@ public class FallingState : State
 {
     private void Update()
     {
-        if (Physics.CheckOnGround() == false)
-        {
-            float horizontalInput = Input.GetAxis("Horizontal");
-            Physics.Move(horizontalInput);
-        }
+        if (!Physics.CheckOnGround())
+            Physics.Move(PlayerInput.CheckMoveKeys());
         else
-        {
             Physics.Stop();
-        }
     }
 }

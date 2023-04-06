@@ -6,9 +6,7 @@ public class JumpTransition : Transition
 {
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && Physics.CheckOnGround())
-        {
+        if (PlayerInput.CheckJumpKey() && Physics.CheckOnGround())
             NeedTransit = true;
-        }
     }
 }

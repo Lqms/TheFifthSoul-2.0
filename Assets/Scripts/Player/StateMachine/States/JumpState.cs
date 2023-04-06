@@ -13,8 +13,6 @@ public class JumpState : State
 
     private void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal");
-
-        Physics.Move(horizontalInput);
+        Physics.Move(PlayerInput.CheckMoveKeys());
     }
 }
