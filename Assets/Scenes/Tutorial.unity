@@ -3837,6 +3837,7 @@ MonoBehaviour:
   _animationName: 4
   _transitions:
   - {fileID: 2013849522}
+  - {fileID: 2013849531}
 --- !u!114 &2013849525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3853,6 +3854,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 2013849520}
   - {fileID: 2013849529}
+  - {fileID: 2013849531}
 --- !u!114 &2013849526
 MonoBehaviour:
   m_ObjectHideFlags: 0
