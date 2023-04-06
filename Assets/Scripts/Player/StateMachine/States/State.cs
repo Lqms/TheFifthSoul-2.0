@@ -17,10 +17,12 @@ public class State : MonoBehaviour
     [SerializeField] private List<Transition> _transitions;
 
     protected Animator Animator;
+    protected PlayerPhysics Physics;
 
     private void Awake()
     {
         Animator = GetComponentInParent<Animator>();
+        Physics = GetComponentInParent<PlayerPhysics>();
     }
 
     protected virtual void OnEnable()

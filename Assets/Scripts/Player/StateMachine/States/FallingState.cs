@@ -4,37 +4,11 @@ using UnityEngine;
 
 public class FallingState : State
 {
-    [SerializeField] private Rigidbody2D _rigidbody;
-    [SerializeField] private float _speed = 5;
-    [SerializeField] private LayerMask _groundMask;
-    [SerializeField] private Transform _legs;
-    [SerializeField] private float _legsRadius = 0.2f;
-
     private void Update()
     {
-        if (OnGround() == false)
-        {
-            float horizontalInput = Input.GetAxis("Horizontal");
-            Move(horizontalInput);
-        }
+        if (!Physics.CheckOnGround())
+            Physics.Move(PlayerInput.CheckMoveKeys());
         else
-        {
-            _rigidbody.velocity = Vector2.zero;
-        }
-    }
-
-    private void Move(float direction)
-    {
-        if (direction > 0)
-            transform.parent.localScale = new Vector3(1, transform.localScale.y, transform.localScale.z);
-        else if (direction < 0)
-            transform.parent.localScale = new Vector3(-1, transform.localScale.y, transform.localScale.z);
-
-        _rigidbody.velocity = new Vector2(direction * _speed, _rigidbody.velocity.y);
-    }
-
-    private bool OnGround()
-    {
-        return Physics2D.OverlapCircle(_legs.position, _legsRadius, _groundMask);
+            Physics.Stop();
     }
 }
