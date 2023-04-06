@@ -47,6 +47,11 @@ public class PlayerPhysics : MonoBehaviour
         _rigidbody.velocity = Vector2.zero;
     }
 
+    public void ResetVelocityX()
+    {
+        _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y);
+    }
+
     public void Jump()
     {
         _rigidbody.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);

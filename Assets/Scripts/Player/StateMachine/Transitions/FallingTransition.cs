@@ -6,7 +6,7 @@ public class FallingTransition : Transition
 {
     private void Update()
     {
-        if (PlayerController.Velocity.y < 0 && !PlayerController.CheckOnGround())
+        if (PlayerController.Velocity.y < 0 && !PlayerController.CheckOnGround() && !PlayerController.IsAttacking)
             NeedTransit = true;
     }
 }

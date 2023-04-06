@@ -6,7 +6,7 @@ public class AttackTransition : Transition
 {
     private void Update()
     {
-        if (PlayerInput.CheckAttackKey() && !PlayerController.IsAttacking)
+        if (PlayerInput.CheckAttackKeyDown() && !PlayerController.IsAttacking)
             NeedTransit = true;
     }
 }

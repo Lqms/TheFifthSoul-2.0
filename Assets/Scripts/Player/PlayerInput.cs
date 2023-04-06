@@ -24,7 +24,7 @@ public class PlayerInput : MonoBehaviour
         return 0;
     }
 
-    public static bool CheckDashKey()
+    public static bool CheckDashKeyDown()
     {
         if (Input.GetKeyDown(DashKey))
         {
@@ -34,7 +34,7 @@ public class PlayerInput : MonoBehaviour
         return false;
     }
 
-    public static bool CheckJumpKey()
+    public static bool CheckJumpKeyDown()
     {
         if (Input.GetKeyDown(JumpKey))
         {
@@ -44,7 +44,7 @@ public class PlayerInput : MonoBehaviour
         return false;
     }
 
-    public static bool CheckAttackKey()
+    public static bool CheckAttackKeyDown()
     {
         if (Input.GetKeyDown(AttackKey))
         {

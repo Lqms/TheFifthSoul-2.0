@@ -6,7 +6,7 @@ public class DashTransition : Transition
 {
     private void Update()
     {
-        if (PlayerInput.CheckDashKey() && PlayerController.CanDash)
+        if (PlayerInput.CheckDashKeyDown() && PlayerController.CanDash)
             NeedTransit = true;
     }
 }
