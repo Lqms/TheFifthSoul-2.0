@@ -6,7 +6,7 @@ public class RunTransition : Transition
 {
     private void Update()
     {
-        if (PlayerInput.CheckMoveKeys() != 0 && Physics.Velocity.y == 0)
+        if (PlayerInput.CheckMoveKeys() != 0 && PlayerController.Velocity.y == 0)
             NeedTransit = true;
     }
 }

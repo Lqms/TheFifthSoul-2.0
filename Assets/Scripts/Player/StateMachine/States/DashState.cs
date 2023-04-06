@@ -8,6 +8,6 @@ public class DashState : State
     {
         base.OnEnable();
 
-        Physics.Dash();
+        PlayerController.Dash();
     }
 }

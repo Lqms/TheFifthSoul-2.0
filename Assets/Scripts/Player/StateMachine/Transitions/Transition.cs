@@ -6,16 +6,14 @@ public abstract class Transition : MonoBehaviour
 {
     [SerializeField] private State _targetState;
 
-    protected PlayerPhysics Physics;
-    protected PlayerCombat Combat;
+    protected PlayerController PlayerController;
 
     public State TargetState => _targetState;
     public bool NeedTransit { get; protected set; }
 
     private void Awake()
     {
-        Physics = GetComponentInParent<PlayerPhysics>();
-        Combat = GetComponentInParent<PlayerCombat>();
+        PlayerController = GetComponentInParent<PlayerController>();
     }
 
     private void OnEnable()

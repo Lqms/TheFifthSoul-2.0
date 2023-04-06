@@ -8,9 +8,6 @@ public class AttackState : State
     {
         base.OnEnable();
 
-        if (Physics.CheckOnGround())
-            Physics.SetVelocityX(0); // поинтереснее
-
-        Combat.Attack();
+        PlayerController.Attack();
     }
 }

@@ -8,11 +8,11 @@ public class JumpState : State
     {
         base.OnEnable();
 
-        Physics.Jump();
+        PlayerController.Jump();
     }
 
     private void Update()
     {
-        Physics.Move(PlayerInput.CheckMoveKeys());
+        PlayerController.Move(PlayerInput.CheckMoveKeys());
     }
 }
