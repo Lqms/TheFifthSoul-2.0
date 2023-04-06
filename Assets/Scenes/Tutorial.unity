@@ -282,6 +282,7 @@ GameObject:
   - component: {fileID: 30913011}
   - component: {fileID: 30913012}
   - component: {fileID: 30913013}
+  - component: {fileID: 30913014}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -459,6 +460,18 @@ MonoBehaviour:
   _speed: 5
   _dashPower: 25
   _dashCooldown: 3
+--- !u!114 &30913014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30913005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefa608f09402c64383dab60e8c2b332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &287449400
 GameObject:
   m_ObjectHideFlags: 0
@@ -3707,6 +3720,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2013849519}
   - component: {fileID: 2013849528}
+  - component: {fileID: 2013849532}
   - component: {fileID: 2013849527}
   - component: {fileID: 2013849530}
   - component: {fileID: 2013849526}
@@ -3717,6 +3731,7 @@ GameObject:
   - component: {fileID: 2013849521}
   - component: {fileID: 2013849520}
   - component: {fileID: 2013849529}
+  - component: {fileID: 2013849531}
   m_Layer: 0
   m_Name: StateMachine
   m_TagString: Untagged
@@ -3803,7 +3818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7a095595cb661a4c83dced29473c909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animationName: 3
+  _animationName: 4
   _transitions:
   - {fileID: 2013849522}
 --- !u!114 &2013849525
@@ -3818,7 +3833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da8f1f207c52a8b4a98c81b25704417f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animationName: 2
+  _animationName: 3
   _transitions:
   - {fileID: 2013849520}
   - {fileID: 2013849529}
@@ -3834,12 +3849,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21025bd317e4d1f4ea976889e0a8cb5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animationName: 1
+  _animationName: 2
   _transitions:
   - {fileID: 2013849522}
   - {fileID: 2013849521}
   - {fileID: 2013849529}
   - {fileID: 2013849520}
+  - {fileID: 2013849531}
 --- !u!114 &2013849527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3852,12 +3868,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ad1be557d8c41d428aecf29462c5b20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animationName: 0
+  _animationName: 1
   _transitions:
   - {fileID: 2013849523}
   - {fileID: 2013849521}
   - {fileID: 2013849520}
   - {fileID: 2013849529}
+  - {fileID: 2013849531}
 --- !u!114 &2013849528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3896,10 +3913,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6ca05134f9d9f24a87488884d180598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animationName: 4
+  _animationName: 5
   _transitions:
   - {fileID: 2013849520}
   - {fileID: 2013849522}
+--- !u!114 &2013849531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013849518}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e06dfa4e0eb2d4f46aa56461ae2a71e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetState: {fileID: 2013849532}
+--- !u!114 &2013849532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013849518}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99400472e2a1e3944ab6e507affab181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animationName: 0
+  _transitions:
+  - {fileID: 2013849522}
+  - {fileID: 2013849520}
 --- !u!1 &2019510832
 GameObject:
   m_ObjectHideFlags: 0

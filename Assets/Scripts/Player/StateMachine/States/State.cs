@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum AnimationNames
 {
+    Attack,
     Idle,
     Run,
     Jump,
@@ -18,11 +19,13 @@ public class State : MonoBehaviour
 
     protected Animator Animator;
     protected PlayerPhysics Physics;
+    protected PlayerCombat Combat;
 
     private void Awake()
     {
         Animator = GetComponentInParent<Animator>();
         Physics = GetComponentInParent<PlayerPhysics>();
+        Combat = GetComponentInParent<PlayerCombat>();
     }
 
     protected virtual void OnEnable()

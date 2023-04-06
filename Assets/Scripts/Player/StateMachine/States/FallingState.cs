@@ -7,8 +7,13 @@ public class FallingState : State
     private void Update()
     {
         if (!Physics.CheckOnGround())
+        {
             Physics.Move(PlayerInput.CheckMoveKeys());
+        }
         else
-            Physics.Stop();
+        {
+            Physics.SetVelocityX(0);
+            Physics.SetVelocityY(0);
+        }
     }
 }
