@@ -29,7 +29,7 @@ public class State : MonoBehaviour
         PlayerController.PlayAnimation(_animationName.ToString());
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         PlayerController.StopAnimatorPlayback();
     }
