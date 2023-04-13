@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    public static KeyCode AttackKey = KeyCode.Mouse0;
     public static KeyCode MoveLeftKey = KeyCode.A;
     public static KeyCode MoveRightKey = KeyCode.D;
     public static KeyCode JumpKey = KeyCode.Space;
@@ -23,7 +24,7 @@ public class PlayerInput : MonoBehaviour
         return 0;
     }
 
-    public static bool CheckDashKey()
+    public static bool CheckDashKeyDown()
     {
         if (Input.GetKeyDown(DashKey))
         {
@@ -33,9 +34,19 @@ public class PlayerInput : MonoBehaviour
         return false;
     }
 
-    public static bool CheckJumpKey()
+    public static bool CheckJumpKeyDown()
     {
         if (Input.GetKeyDown(JumpKey))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static bool CheckAttackKeyDown()
+    {
+        if (Input.GetKeyDown(AttackKey))
         {
             return true;
         }

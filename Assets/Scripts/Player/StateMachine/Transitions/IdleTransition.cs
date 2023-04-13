@@ -6,7 +6,7 @@ public class IdleTransition : Transition
 {
     private void Update()
     {
-        if (Physics.Velocity == Vector2.zero)
+        if (PlayerController.Velocity == Vector2.zero && !PlayerController.IsAttacking)
             NeedTransit = true;
     }
 }

@@ -42,9 +42,14 @@ public class PlayerPhysics : MonoBehaviour
         StartCoroutine(Dashing());
     }
 
-    public void Stop()
+    public void ResetVelocity()
     {
         _rigidbody.velocity = Vector2.zero;
+    }
+
+    public void ResetVelocityX()
+    {
+        _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y);
     }
 
     public void Jump()

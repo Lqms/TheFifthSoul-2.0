@@ -6,9 +6,9 @@ public class FallingState : State
 {
     private void Update()
     {
-        if (!Physics.CheckOnGround())
-            Physics.Move(PlayerInput.CheckMoveKeys());
+        if (!PlayerController.CheckOnGround())
+            PlayerController.Move(PlayerInput.CheckMoveKeys());
         else
-            Physics.Stop();
+            PlayerController.ResetVelocity();
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum AnimationNames
 {
+    Attack,
     Idle,
     Run,
     Jump,
@@ -16,23 +17,21 @@ public class State : MonoBehaviour
     [SerializeField] private AnimationNames _animationName;
     [SerializeField] private List<Transition> _transitions;
 
-    protected Animator Animator;
-    protected PlayerPhysics Physics;
+    protected PlayerController PlayerController;
 
     private void Awake()
     {
-        Animator = GetComponentInParent<Animator>();
-        Physics = GetComponentInParent<PlayerPhysics>();
+        PlayerController = GetComponentInParent<PlayerController>();
     }
 
     protected virtual void OnEnable()
     {
-        Animator.Play(_animationName.ToString());
+        PlayerController.PlayAnimation(_animationName.ToString());
     }
 
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
-        Animator.StopPlayback();
+        PlayerController.StopAnimatorPlayback();
     }
 
     public void Enter()
