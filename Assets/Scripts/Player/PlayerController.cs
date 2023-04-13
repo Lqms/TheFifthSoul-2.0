@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     public void Attack()
     {
-        _combat.Attack();
+        _combat.Attack(_animator);
         _physics.ResetVelocityX(); // test
     }
 

@@ -18,6 +18,7 @@ public class State : MonoBehaviour
     [SerializeField] private List<Transition> _transitions;
 
     protected PlayerController PlayerController;
+    protected AnimationNames AnimationName => _animationName;
 
     private void Awake()
     {
