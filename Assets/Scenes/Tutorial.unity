@@ -940,7 +940,7 @@ GameObject:
   m_Component:
   - component: {fileID: 617622131}
   m_Layer: 0
-  m_Name: LuqmusBranch
+  m_Name: MainBranch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
