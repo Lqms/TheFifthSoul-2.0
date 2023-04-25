@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
+    [SerializeField] private Transform _attackPoint;
+
     public bool IsAttacking { get; private set; } = false;
 
     public void Attack(Animator animator)
@@ -20,7 +22,13 @@ public class PlayerCombat : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         float animationTime = animator.GetCurrentAnimatorStateInfo(0).length;
-        print(animationTime);
+
+        var attackRange = Vector2.Distance(transform.position, _attackPoint.position);
+        var collisions = Physics2D.OverlapCircleAll(_attackPoint.position, attackRange);
+
+        foreach (var collision in collisions)
+            if (collision.TryGetComponent(out Health health) && collision != GetComponent<Collider2D>())
+                health.ApplyDamage(1);
 
         yield return new WaitForSeconds(animationTime);
 
