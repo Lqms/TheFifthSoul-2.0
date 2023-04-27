@@ -23,15 +23,20 @@ public class PlayerCombat : MonoBehaviour
 
         float animationTime = animator.GetCurrentAnimatorStateInfo(0).length;
 
-        var attackRange = Vector2.Distance(transform.position, _attackPoint.position);
-        var collisions = Physics2D.OverlapCircleAll(_attackPoint.position, attackRange);
-
-        foreach (var collision in collisions)
-            if (collision.TryGetComponent(out Health health) && collision != GetComponent<Collider2D>())
-                health.ApplyDamage(1);
+        DealDamage();
 
         yield return new WaitForSeconds(animationTime);
 
         IsAttacking = false;
+    }
+
+    private void DealDamage()
+    {
+        var attackRange = Vector2.Distance(transform.position, _attackPoint.position);
+        var collisions = Physics2D.OverlapCircleAll(_attackPoint.position, attackRange);
+
+        foreach (var collision in collisions)
+            if (collision.TryGetComponent(out Health health) && collision.TryGetComponent(out Player player) == false)
+                health.ApplyDamage(1);
     }
 }
