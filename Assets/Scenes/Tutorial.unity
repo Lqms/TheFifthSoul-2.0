@@ -275,16 +275,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 408655582, guid: 6bad6060b245149429b5926214b89248, type: 3}
+      propertyPath: m_Size.x
+      value: 0.84444445
+      objectReference: {fileID: 0}
+    - target: {fileID: 408655582, guid: 6bad6060b245149429b5926214b89248, type: 3}
       propertyPath: m_Size.y
-      value: 1.4577844
+      value: 1.5111111
+      objectReference: {fileID: 0}
+    - target: {fileID: 408655582, guid: 6bad6060b245149429b5926214b89248, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 408655582, guid: 6bad6060b245149429b5926214b89248, type: 3}
       propertyPath: m_Offset.y
-      value: 0.026663423
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 416147361, guid: 6bad6060b245149429b5926214b89248, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 416147361, guid: 6bad6060b245149429b5926214b89248, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 416147364, guid: 6bad6060b245149429b5926214b89248, type: 3}
       propertyPath: m_Enabled
@@ -311,12 +323,16 @@ PrefabInstance:
       value: Skeleton
       objectReference: {fileID: 0}
     - target: {fileID: 1624939874957009377, guid: 6bad6060b245149429b5926214b89248, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624939874957009377, guid: 6bad6060b245149429b5926214b89248, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1624939874957009388, guid: 6bad6060b245149429b5926214b89248, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1624939874957009388, guid: 6bad6060b245149429b5926214b89248, type: 3}
       propertyPath: m_LocalPosition.x
@@ -324,7 +340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1624939874957009388, guid: 6bad6060b245149429b5926214b89248, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.84
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1624939874957009388, guid: 6bad6060b245149429b5926214b89248, type: 3}
       propertyPath: m_LocalPosition.z
@@ -360,15 +376,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1624939874957009391, guid: 6bad6060b245149429b5926214b89248, type: 3}
       propertyPath: m_Mass
-      value: 50
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1624939874957009391, guid: 6bad6060b245149429b5926214b89248, type: 3}
       propertyPath: m_LinearDrag
-      value: 100
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1624939874957009391, guid: 6bad6060b245149429b5926214b89248, type: 3}
       propertyPath: m_AngularDrag
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1624939874957009391, guid: 6bad6060b245149429b5926214b89248, type: 3}
       propertyPath: m_GravityScale
@@ -817,6 +833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44f5832cb7b27dc47a331afd9e28f8e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: {fileID: 408655585}
 --- !u!114 &408655585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1221,7 +1238,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &774169591
 GameObject:
@@ -2836,7 +2853,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1451706793}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

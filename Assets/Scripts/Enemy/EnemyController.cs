@@ -9,22 +9,18 @@ public class EnemyController : MonoBehaviour
 
     public Player Player => _player;
 
-    public event UnityAction PlayerInRange;
-    public event UnityAction PlayerOutOfRange;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
     {
-        if (collision.TryGetComponent(out Player player))
-        {
-            PlayerInRange?.Invoke();
-        }
+        if (CheckAttackingPossibility())
+            print("can attack");
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private bool CheckAttackingPossibility()
     {
-        if (collision.TryGetComponent(out Player player))
-        {
-            PlayerOutOfRange?.Invoke();
-        }
+        Ray2D ray = new Ray2D(transform.position, transform.right);
+        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 2);
+        Debug.DrawRay(ray.origin, ray.direction * 2, Color.red);
+
+        return (hit.collider != null && hit.collider.TryGetComponent(out Player player));
     }
 }
