@@ -16,16 +16,15 @@ public class PlayerCombat : MonoBehaviour
     private IEnumerator Attacking(Animator animator)
     {
         IsAttacking = true;
-
         float delay = 0.01f;
 
         yield return new WaitForSeconds(delay);
 
         float animationTime = animator.GetCurrentAnimatorStateInfo(0).length;
 
+        yield return new WaitForSeconds(animationTime / 2);
         DealDamage();
-
-        yield return new WaitForSeconds(animationTime);
+        yield return new WaitForSeconds(animationTime / 2);
 
         IsAttacking = false;
     }

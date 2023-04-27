@@ -521,10 +521,10 @@ TextureImporter:
         serializedVersion: 2
         x: 66
         y: 218
-        width: 53
-        height: 69
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 60
+        height: 90
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -542,10 +542,10 @@ TextureImporter:
         serializedVersion: 2
         x: 131
         y: 218
-        width: 59
-        height: 89
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 71
+        height: 90
+      alignment: 9
+      pivot: {x: 0.48837152, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -563,10 +563,10 @@ TextureImporter:
         serializedVersion: 2
         x: 204
         y: 218
-        width: 85
-        height: 67
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 86
+        height: 90
+      alignment: 9
+      pivot: {x: 0.30814585, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -584,10 +584,10 @@ TextureImporter:
         serializedVersion: 2
         x: 299
         y: 218
-        width: 51
-        height: 69
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 53
+        height: 90
+      alignment: 9
+      pivot: {x: 0.24647827, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -942,8 +942,8 @@ TextureImporter:
       Skeleton_70: -571433193
       Skeleton_64: 255596755
       Skeleton_12: -1471103971
-      Skeleton_31: 552842290
       Skeleton_101: -162732152
+      Skeleton_31: 552842290
       Skeleton_73: 760239514
       Skeleton_90: -2050541785
       Skeleton_102: 1710731311
