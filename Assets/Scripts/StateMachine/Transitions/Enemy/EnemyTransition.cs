@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class EnemyTransition : Transition
 {
-    protected PlayerController PlayerController;
+    protected EnemyController EnemyController;
+
     private void Awake()
     {
-        PlayerController = GetComponentInParent<PlayerController>();
+        EnemyController = GetComponentInParent<EnemyController>();
     }
 }

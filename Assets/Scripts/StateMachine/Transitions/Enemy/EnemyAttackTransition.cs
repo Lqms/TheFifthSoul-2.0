@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFollowTransition : EnemyTransition
+public class EnemyAttackTransition : EnemyTransition
 {
     private void Update()
     {
-        if (Vector2.Distance(EnemyController.Player.transform.position, transform.position) < 5)
+        if (Vector2.Distance(EnemyController.Player.transform.position, transform.position) < 1)
         {
             NeedTransit = true;
         }

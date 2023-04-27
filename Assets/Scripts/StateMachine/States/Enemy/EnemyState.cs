@@ -4,5 +4,10 @@ using UnityEngine;
 
 public class EnemyState : State
 {
+    protected EnemyController EnemyController;
 
+    private void Awake()
+    {
+        EnemyController = GetComponentInParent<EnemyController>();
+    }
 }

@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class EnemyIdleTransition : EnemyTransition
 {
-    private float _playerHealth;
-
-    private void Start()
+    private void OnEnable()
     {
-        FindObjectOfType<Player>().TryGetComponent(out Health health);
-        _playerHealth = health.Current;
+        EnemyController.Player.Died += OnPlayerDied;
     }
 
-    private void Update()
+    private void OnDisable()
     {
-        if (_playerHealth <= 0)
-        {
-            NeedTransit = true;
-        }
+        EnemyController.Player.Died -= OnPlayerDied;
+    }
+
+    private void OnPlayerDied()
+    {
+        NeedTransit = true;
     }
 }

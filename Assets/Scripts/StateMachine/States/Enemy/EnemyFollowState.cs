@@ -6,7 +6,7 @@ public class EnemyFollowState : EnemyState
 {
     private void Update()
     {
-        if (FindObjectOfType<Player>().transform.position.x > transform.position.x)
+        if (EnemyController.Player.transform.position.x > transform.position.x)
         {
             transform.parent.Translate(1 * Time.deltaTime, 0, 0);
         }
