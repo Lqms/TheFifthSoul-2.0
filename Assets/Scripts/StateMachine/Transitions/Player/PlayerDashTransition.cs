@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpTransition : Transition
+public class PlayerDashTransition : PlayerTransition
 {
     private void Update()
     {
-        if (PlayerInput.CheckJumpKeyDown() && PlayerController.CheckOnGround())
+        if (PlayerInput.CheckDashKeyDown() && PlayerController.CanDash)
             NeedTransit = true;
     }
 }

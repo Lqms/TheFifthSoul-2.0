@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FallingTransition : Transition
+public class PlayerFallingTransition : PlayerTransition
 {
     private void Update()
     {

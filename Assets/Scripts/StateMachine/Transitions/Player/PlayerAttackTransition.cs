@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IdleTransition : Transition
+public class PlayerAttackTransition : PlayerTransition
 {
     private void Update()
     {
-        if (PlayerController.Velocity == Vector2.zero && !PlayerController.IsAttacking)
+        if (PlayerInput.CheckAttackKeyDown() && !PlayerController.IsAttacking)
             NeedTransit = true;
     }
 }

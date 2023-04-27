@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackTransition : Transition
+public class PlayerJumpTransition : PlayerTransition
 {
     private void Update()
     {
-        if (PlayerInput.CheckAttackKeyDown() && !PlayerController.IsAttacking)
+        if (PlayerInput.CheckJumpKeyDown() && PlayerController.CheckOnGround())
             NeedTransit = true;
     }
 }

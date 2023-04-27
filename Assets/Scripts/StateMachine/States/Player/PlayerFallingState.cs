@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FallingState : State
+public class PlayerFallingState : PlayerState
 {
     private void Update()
     {

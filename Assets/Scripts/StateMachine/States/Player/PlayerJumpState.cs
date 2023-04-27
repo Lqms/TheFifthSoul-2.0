@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpState : State
+public class PlayerJumpState : PlayerState
 {
     protected override void OnEnable()
     {

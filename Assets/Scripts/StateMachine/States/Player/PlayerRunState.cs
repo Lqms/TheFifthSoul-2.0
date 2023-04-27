@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RunState : State
+public class PlayerRunState : PlayerState
 {
     private void Update()
     {

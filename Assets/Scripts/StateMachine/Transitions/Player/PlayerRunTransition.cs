@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DashTransition : Transition
+public class PlayerRunTransition : PlayerTransition
 {
     private void Update()
     {
-        if (PlayerInput.CheckDashKeyDown() && PlayerController.CanDash)
+        if (PlayerInput.CheckMoveKeys() != 0 && PlayerController.Velocity.y == 0)
             NeedTransit = true;
     }
 }

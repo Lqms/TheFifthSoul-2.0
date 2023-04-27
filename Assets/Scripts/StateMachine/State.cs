@@ -17,23 +17,7 @@ public class State : MonoBehaviour
     [SerializeField] private AnimationNames _animationName;
     [SerializeField] private List<Transition> _transitions;
 
-    protected PlayerController PlayerController;
     protected AnimationNames AnimationName => _animationName;
-
-    private void Awake()
-    {
-        PlayerController = GetComponentInParent<PlayerController>();
-    }
-
-    protected virtual void OnEnable()
-    {
-        PlayerController.PlayAnimation(_animationName.ToString());
-    }
-
-    protected virtual void OnDisable()
-    {
-        PlayerController.StopAnimatorPlayback();
-    }
 
     public void Enter()
     {
