@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFollowState : State
+public class EnemyFollowState : EnemyState
 {
     private void Update()
     {

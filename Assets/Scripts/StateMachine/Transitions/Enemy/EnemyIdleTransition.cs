@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyIdleTransition : Transition
+public class EnemyIdleTransition : EnemyTransition
 {
     private float _playerHealth;
 

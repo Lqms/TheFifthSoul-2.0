@@ -6,6 +6,7 @@ public class StateMachine : MonoBehaviour
 {
     [SerializeField] private State _startState;
 
+    private Animator _animator;
     private State _currentState;
 
     public State CurrentState => _currentState;
@@ -13,9 +14,10 @@ public class StateMachine : MonoBehaviour
     private void Start()
     {
         _currentState = _startState;
+        _animator = GetComponentInParent<Animator>();
 
         if (_currentState != null)
-            _currentState.Enter();
+            _currentState.Enter(_animator);
     }
 
     private void Update()
@@ -38,6 +40,6 @@ public class StateMachine : MonoBehaviour
         _currentState = nextState;
 
         if (_currentState != null)
-            _currentState.Enter();
+            _currentState.Enter(_animator);
     }
 }

@@ -17,10 +17,25 @@ public class State : MonoBehaviour
     [SerializeField] private AnimationNames _animationName;
     [SerializeField] private List<Transition> _transitions;
 
+    private Animator _animator;
+
+    protected Animator Animator => _animator;
     protected AnimationNames AnimationName => _animationName;
 
-    public void Enter()
+    protected virtual void OnEnable()
     {
+        _animator.Play(AnimationName.ToString());
+    }
+
+    protected virtual void OnDisable()
+    {
+        _animator.StopPlayback();
+    }
+
+    public void Enter(Animator animator)
+    {
+        _animator = animator;
+
         if (enabled == false)
         {
             enabled = true;

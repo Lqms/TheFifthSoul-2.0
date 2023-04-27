@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFollowTransition : Transition
+public class EnemyFollowTransition : EnemyTransition
 {
     private void Update()
     {

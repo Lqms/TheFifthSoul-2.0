@@ -42,14 +42,4 @@ public class PlayerController : MonoBehaviour
     {
         return _physics.CheckOnGround();
     }
-
-    public void PlayAnimation(string animationName)
-    {
-        _animator.Play(animationName);
-    }
-
-    public void StopAnimatorPlayback()
-    {
-        _animator.StopPlayback();
-    }
 }
