@@ -9,6 +9,8 @@ public class Health : MonoBehaviour
 
     private float _current;
 
+    public float Current => _current;
+
     public event UnityAction Over;
     public event UnityAction Damaged;
 
