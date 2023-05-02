@@ -12,10 +12,6 @@ GameObject:
   - component: {fileID: 416147367}
   - component: {fileID: 416147366}
   - component: {fileID: 416147365}
-  - component: {fileID: 416147364}
-  - component: {fileID: 416147363}
-  - component: {fileID: 416147368}
-  - component: {fileID: 416147369}
   m_Layer: 2
   m_Name: StateMachine
   m_TagString: Untagged
@@ -65,8 +61,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animationName: 1
   _transitions:
-  - {fileID: 416147363}
-  - {fileID: 416147368}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &416147365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,65 +76,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 416147366}
---- !u!114 &416147364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 416147361}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cecdb87ec940b8e4ebd65a69db3720d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animationName: 2
-  _transitions:
-  - {fileID: 416147365}
-  - {fileID: 416147368}
---- !u!114 &416147363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 416147361}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62187965d3d2a834881af6106911e6e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetState: {fileID: 416147364}
---- !u!114 &416147368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 416147361}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a1fc9613c573054faa3d6b3e86eb2ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetState: {fileID: 416147369}
---- !u!114 &416147369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 416147361}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f586b6e8379677d4bbda15aad15a2afd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animationName: 0
-  _transitions:
-  - {fileID: 416147365}
-  - {fileID: 416147363}
-  _attackPoint: {fileID: 1451706793}
 --- !u!1 &1451706792
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +255,7 @@ MonoBehaviour:
   _player: {fileID: 0}
   _stateMachine: {fileID: 416147367}
   _animator: {fileID: 1624939874957009390}
-  _agroRange: 5
+  _viewRange: 5
   _attackRange: 1
   _movementSpeed: 1
 --- !u!114 &408655584

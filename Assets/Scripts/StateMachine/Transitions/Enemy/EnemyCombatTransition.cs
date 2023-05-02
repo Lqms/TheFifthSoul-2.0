@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyIdleTransition : EnemyTransition
+public class EnemyCombatTransition : EnemyTransition
 {
     private void Update()
     {
-        if (CheckPlayerInViewRange() == false)
+        if (CheckPlayerInViewRange())
             NeedTransit = true;
     }
 
