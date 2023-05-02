@@ -14,7 +14,7 @@ public class EnemyController : MonoBehaviour
 
     public Player Player => _player;
     public float AttackRange => _attackRange;
-    public float AgroRange => _agroRange;
+    public float ViewRange => _agroRange;
     public float MovementSpeed => _movementSpeed;   
 
     private void OnEnable()
@@ -31,20 +31,5 @@ public class EnemyController : MonoBehaviour
     {
         _stateMachine.gameObject.SetActive(false);
         _animator.Play(AnimationNames.Idle.ToString());
-    }
-
-    private void Update()
-    {
-        if (CheckAttackingPossibility())
-            print("can attack");
-    }
-
-    private bool CheckAttackingPossibility()
-    {
-        Ray2D ray = new Ray2D(transform.position, transform.right);
-        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 2);
-        Debug.DrawRay(ray.origin, ray.direction * 2, Color.red);
-
-        return (hit.collider != null && hit.collider.TryGetComponent(out Player player));
     }
 }

@@ -6,9 +6,16 @@ public class EnemyAttackTransition : EnemyTransition
 {
     private void Update()
     {
-        if (Vector2.Distance(EnemyController.Player.transform.position, transform.position) < EnemyController.AttackRange)
-        {
+        if (CheckAttackingPossibility())
             NeedTransit = true;
-        }
+    }
+
+    private bool CheckAttackingPossibility()
+    {
+        Ray2D ray = new Ray2D(transform.parent.position, transform.right);
+        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, EnemyController.AttackRange);
+        Debug.DrawRay(ray.origin, ray.direction * EnemyController.AttackRange, Color.red);
+
+        return (hit.collider != null && hit.collider.TryGetComponent(out Player player));
     }
 }
