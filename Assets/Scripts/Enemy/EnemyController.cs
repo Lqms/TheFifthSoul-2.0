@@ -8,13 +8,13 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private Player _player;
     [SerializeField] private StateMachine _stateMachine;
     [SerializeField] private Animator _animator;
-    [SerializeField] private float _agroRange = 5;
+    [SerializeField] private float _viewRange = 5;
     [SerializeField] private float _attackRange = 1;
     [SerializeField] private float _movementSpeed = 1;
 
     public Player Player => _player;
     public float AttackRange => _attackRange;
-    public float ViewRange => _agroRange;
+    public float ViewRange => _viewRange;
     public float MovementSpeed => _movementSpeed;   
 
     private void OnEnable()
