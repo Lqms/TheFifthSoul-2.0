@@ -6,7 +6,8 @@ public class EnemyCombatState : EnemyState
 {
     [SerializeField] private Transform _attackPoint;
 
-    private Coroutine _coroutine;
+    private Coroutine _attackCoroutine;
+    private Coroutine _moveCoroutine;
 
     private void Update()
     {
@@ -22,16 +23,22 @@ public class EnemyCombatState : EnemyState
     {
         base.OnDisable();
 
-        if (_coroutine != null)
-            StopCoroutine(_coroutine);
+        if (_attackCoroutine != null)
+            StopCoroutine(_attackCoroutine);
+
+        if (_moveCoroutine != null)
+            StopCoroutine(_moveCoroutine);
     }
 
     private void Attack()
     {
-        if (_coroutine != null)
-            StopCoroutine(_coroutine);
+        if (_attackCoroutine != null)
+            return;
 
-        _coroutine = StartCoroutine(Attacking());
+        if (_moveCoroutine != null)
+            StopCoroutine(_moveCoroutine);
+
+        _attackCoroutine = StartCoroutine(Attacking());
 
         Animator.StopPlayback();
         Animator.Play(AnimationNames.Attack.ToString());
@@ -56,10 +63,10 @@ public class EnemyCombatState : EnemyState
 
     private void MoveToPlayer()
     {
-        if (_coroutine != null)
-            StopCoroutine(_coroutine);
+        if (_moveCoroutine != null)
+            StopCoroutine(_moveCoroutine);
 
-        _coroutine = StartCoroutine(MovingToPlayer());
+        _moveCoroutine = StartCoroutine(MovingToPlayer());
 
         Animator.StopPlayback();
         Animator.Play(AnimationNames.Run.ToString());
@@ -80,17 +87,17 @@ public class EnemyCombatState : EnemyState
 
     private IEnumerator Attacking()
     {
+        print("Attacking");
         float delay = 0.01f;
 
         yield return new WaitForSeconds(delay);
         float animationTime = Animator.GetCurrentAnimatorStateInfo(0).length;
 
-        while (true)
-        {
-            yield return new WaitForSeconds(animationTime / 2);
-            DealDamage();
-            yield return new WaitForSeconds(animationTime / 2);
-        }
+        yield return new WaitForSeconds(animationTime / 2);
+        DealDamage();
+        yield return new WaitForSeconds(animationTime / 2);
+
+        _attackCoroutine = null;
     }
 
     private void DealDamage()
@@ -99,7 +106,7 @@ public class EnemyCombatState : EnemyState
         var collisions = Physics2D.OverlapCircleAll(_attackPoint.position, attackRange);
 
         foreach (var collision in collisions)
-            if (collision.TryGetComponent(out Health health) && collision.TryGetComponent(out Enemy player) == false)
+            if (collision.TryGetComponent(out Health health) && collision.TryGetComponent(out Enemy enemy) == false)
                 health.ApplyDamage(1);
     }
 }
