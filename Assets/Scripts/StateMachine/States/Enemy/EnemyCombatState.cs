@@ -18,12 +18,23 @@ public class EnemyCombatState : EnemyState
             MoveToPlayer();
     }
 
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+
+        if (_coroutine != null)
+            StopCoroutine(_coroutine);
+    }
+
     private void Attack()
     {
         if (_coroutine != null)
             StopCoroutine(_coroutine);
 
         _coroutine = StartCoroutine(Attacking());
+
+        Animator.StopPlayback();
+        Animator.Play(AnimationNames.Attack.ToString());
     }
 
     private void LookAtPlayer()
@@ -45,17 +56,31 @@ public class EnemyCombatState : EnemyState
 
     private void MoveToPlayer()
     {
-        if (EnemyController.Player.transform.position.x > transform.position.x)
-            transform.parent.Translate(EnemyController.MovementSpeed * Time.deltaTime, 0, 0);
-        else
-            transform.parent.Translate(-EnemyController.MovementSpeed * Time.deltaTime, 0, 0);
+        if (_coroutine != null)
+            StopCoroutine(_coroutine);
+
+        _coroutine = StartCoroutine(MovingToPlayer());
+
+        Animator.StopPlayback();
+        Animator.Play(AnimationNames.Run.ToString());
     }
 
+    private IEnumerator MovingToPlayer()
+    {
+        while (true)
+        { 
+            if (EnemyController.Player.transform.position.x > transform.position.x)
+                transform.parent.Translate(EnemyController.MovementSpeed * Time.deltaTime, 0, 0);
+            else
+                transform.parent.Translate(-EnemyController.MovementSpeed * Time.deltaTime, 0, 0);
+
+            yield return null;
+        }
+    }
 
     private IEnumerator Attacking()
     {
         float delay = 0.01f;
-        Animator.Play(AnimationNames.Attack.ToString());
 
         yield return new WaitForSeconds(delay);
         float animationTime = Animator.GetCurrentAnimatorStateInfo(0).length;
