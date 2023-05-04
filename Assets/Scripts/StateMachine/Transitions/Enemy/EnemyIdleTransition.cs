@@ -14,14 +14,6 @@ public class EnemyIdleTransition : EnemyTransition
         EnemyController.Player.Died -= OnPlayerDied;
     }
 
-    private void Update()
-    {
-        if (EnemyController.IsPlayerInDetectionRange == false && EnemyController.IsPlayerInAttackRange == false)
-        {
-            NeedTransit = true;
-        }
-    }
-
     private void OnPlayerDied()
     {
         NeedTransit = true;
