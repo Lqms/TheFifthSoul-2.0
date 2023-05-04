@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class EnemyIdleTransition : EnemyTransition
 {
-    private void Update()
+    private void OnEnable()
     {
-        if (CheckPlayerInViewRange() == false)
-            NeedTransit = true;
+        EnemyController.Player.Died += OnPlayerDied;
     }
 
-    private bool CheckPlayerInViewRange()
+    private void OnDisable()
     {
-        Ray2D ray = new Ray2D(transform.parent.position, transform.right);
-        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, EnemyController.ViewRange);
-        Debug.DrawRay(ray.origin, ray.direction * EnemyController.ViewRange, Color.red);
+        EnemyController.Player.Died -= OnPlayerDied;
+    }
 
-        return (hit.collider != null && hit.collider.TryGetComponent(out Player player));
+    private void Update()
+    {
+        if (EnemyController.IsPlayerInDetectionRange == false && EnemyController.IsPlayerInAttackRange == false)
+        {
+            NeedTransit = true;
+        }
+    }
+
+    private void OnPlayerDied()
+    {
+        NeedTransit = true;
     }
 }
