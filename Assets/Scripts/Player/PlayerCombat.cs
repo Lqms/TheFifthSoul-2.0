@@ -32,10 +32,13 @@ public class PlayerCombat : MonoBehaviour
     private void DealDamage()
     {
         var attackRange = Vector2.Distance(transform.position, _attackPoint.position);
+        print(attackRange);
         var collisions = Physics2D.OverlapCircleAll(_attackPoint.position, attackRange);
 
         foreach (var collision in collisions)
+        {
             if (collision.TryGetComponent(out Health health) && collision.TryGetComponent(out Player player) == false)
                 health.ApplyDamage(1);
+        }
     }
 }

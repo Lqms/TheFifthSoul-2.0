@@ -28,18 +28,6 @@ public class EnemyAttackState : EnemyState
         _coroutine = null;
     }
 
-    private void Update()
-    {
-        if (EnemyController.Player.transform.position.x > transform.position.x)
-        {
-            transform.parent.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
-        }
-        else
-        {
-            transform.parent.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-        }
-    }
-
     private IEnumerator Attacking()
     {
         float delay = 0.01f;

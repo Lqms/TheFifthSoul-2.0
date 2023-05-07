@@ -22,6 +22,6 @@ public class Player : MonoBehaviour
     private void OnHealthOver()
     {
         Died?.Invoke();
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

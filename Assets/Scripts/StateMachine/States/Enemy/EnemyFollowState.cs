@@ -6,15 +6,11 @@ public class EnemyFollowState : EnemyState
 {
     private void Update()
     {
-        if (EnemyController.Player.transform.position.x > transform.position.x)
-        {
-            transform.parent.Translate(EnemyController.MovementSpeed * Time.deltaTime, 0, 0);
-            transform.parent.localScale = new Vector3(transform.localScale.x, transform.localScale.y, transform.localScale.z);
-        }
-        else
-        {
-            transform.parent.Translate(-EnemyController.MovementSpeed * Time.deltaTime, 0, 0);
-            transform.parent.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-        }
+        Vector3 moveVector = transform.parent.position;
+        moveVector.x = EnemyController.LastPlayerPositionX;
+        transform.parent.position = Vector3.MoveTowards(transform.parent.position, moveVector, EnemyController.MovementSpeed * Time.deltaTime);
+
+        float rotation = EnemyController.LastPlayerPositionX > transform.position.x ? 0 : 180;
+        transform.parent.rotation = Quaternion.Euler(0, rotation, 0);
     }
 }

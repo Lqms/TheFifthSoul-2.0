@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using UnityEngine.Events;
 
 public class EnemyController : MonoBehaviour
@@ -9,33 +10,37 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private StateMachine _stateMachine;
     [SerializeField] private Animator _animator;
 
+    [SerializeField] private LayerMask _playerMask;
     [SerializeField] private float _attackRange = 1;
     [SerializeField] private float _detectionRange = 5;
     [SerializeField] private float _movementSpeed = 1;
+    [SerializeField] private Transform _eyes;
 
     public Player Player => _player;
     public float MovementSpeed => _movementSpeed;
-    public bool IsPlayerInDetectionRange { get; private set; }
-    public bool IsPlayerInAttackRange { get; private set; }
+    public float AttackRange => _attackRange;
+    public float LastPlayerPositionX { get; private set; }
+    public bool IsPlayerSeen { get; private set; } 
+
+    private void Start()
+    {
+        LastPlayerPositionX = _player.transform.position.x;
+    }
 
     private void Update()
     {
-        if (Vector2.Distance(_player.transform.position, transform.position) < _attackRange)
+        if (IsPlayerSeen = IsPlayerInViewRange())
         {
-            IsPlayerInAttackRange = true;
+            LastPlayerPositionX = _player.transform.position.x;
         }
-        else
-        {
-            IsPlayerInAttackRange = false;
-        }
+    }
 
-        if (Vector2.Distance(_player.transform.position, transform.position) < _detectionRange)
-        {
-            IsPlayerInDetectionRange = true;
-        }
-        else
-        {
-            IsPlayerInDetectionRange = false;
-        }
+    private bool IsPlayerInViewRange()
+    {
+        Ray2D ray = new Ray2D(_eyes.position, transform.right);
+        var hit = Physics2D.Raycast(ray.origin, ray.direction, _detectionRange, _playerMask);
+        Debug.DrawRay(ray.origin, ray.direction * _detectionRange, Color.red);
+
+        return (hit != default);
     }
 }

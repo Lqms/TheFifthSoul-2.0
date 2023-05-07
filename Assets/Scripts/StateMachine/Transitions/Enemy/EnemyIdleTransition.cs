@@ -11,7 +11,17 @@ public class EnemyIdleTransition : EnemyTransition
 
     private void OnDisable()
     {
+        NeedTransit = false;
         EnemyController.Player.Died -= OnPlayerDied;
+    }
+
+    private void Update()
+    {
+        if (transform.parent.position.x == EnemyController.LastPlayerPositionX && EnemyController.IsPlayerSeen == false)
+        {
+            print(transform.parent.position.x);
+            NeedTransit = true;
+        }
     }
 
     private void OnPlayerDied()
