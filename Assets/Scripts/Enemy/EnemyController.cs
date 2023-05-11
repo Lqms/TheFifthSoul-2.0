@@ -30,22 +30,13 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        if (IsPlayerSeen = IsPlayerInViewRange2())
+        if (IsPlayerSeen = IsPlayerInViewRange())
         {
             LastPlayerPositionX = _player.transform.position.x;
         }
     }
 
     private bool IsPlayerInViewRange()
-    {
-        Ray2D ray = new Ray2D(_rayPoint.position, transform.right);
-        var hit = Physics2D.Raycast(ray.origin, ray.direction, _detectionRange, _playerMask);
-        Debug.DrawRay(ray.origin, ray.direction * _detectionRange, Color.red);
-
-        return (hit != default);
-    }
-
-    private bool IsPlayerInViewRange2()
     {
         var targetsInViewRadius = Physics2D.OverlapCircleAll(_rayPoint.position, _detectionRange, _playerMask);
 
