@@ -9,7 +9,8 @@ public class EnemyAttackTransition : EnemyTransition
         if (EnemyController.Player.gameObject.activeSelf == false)
             return;
 
-        bool isPlayerInAttackRange = Mathf.Abs(EnemyController.LastPlayerPositionX - transform.parent.position.x) <= EnemyController.AttackRange;
+        // bool isPlayerInAttackRange = Mathf.Abs(EnemyController.LastPlayerPositionX - transform.parent.position.x) <= EnemyController.AttackRange;
+        bool isPlayerInAttackRange = Vector2.Distance(EnemyController.Player.transform.position, transform.parent.position) <= EnemyController.AttackRange;
 
         if (EnemyController.IsPlayerSeen == true && isPlayerInAttackRange == true)
         {

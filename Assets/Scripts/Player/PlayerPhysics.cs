@@ -10,7 +10,7 @@ public class PlayerPhysics : MonoBehaviour
 
     [Header("Jump")]
     [SerializeField] private float _jumpPower = 10;
-    [SerializeField] private LayerMask _groundMask;
+    [SerializeField] private LayerMask _obstacleMask;
     [SerializeField] private Transform _legs;
     [SerializeField] private float _legsRadius = 0.2f;
 
@@ -24,7 +24,7 @@ public class PlayerPhysics : MonoBehaviour
 
     public bool CheckOnGround()
     {
-        return Physics2D.OverlapCircle(_legs.position, _legsRadius, _groundMask);
+        return Physics2D.OverlapCircle(_legs.position, _legsRadius, _obstacleMask);
     }
 
     public void Move(float direction)
