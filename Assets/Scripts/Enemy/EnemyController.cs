@@ -22,6 +22,7 @@ public class EnemyController : MonoBehaviour
     public float LastPlayerPositionX { get; private set; }
     public bool IsPlayerSeen { get; private set; } 
 
+
     private void Start()
     {
         LastPlayerPositionX = _player.transform.position.x;
