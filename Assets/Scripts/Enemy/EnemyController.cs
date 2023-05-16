@@ -17,11 +17,14 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float _movementSpeed = 1;
     [SerializeField] private Transform _rayPoint;
 
+    [SerializeField] private Transform _fallingPoint;
+
     public Player Player => _player;
     public float MovementSpeed => _movementSpeed;
     public float AttackRange => _attackRange;
     public float LastPlayerPositionX { get; private set; }
     public bool IsPlayerSeen { get; private set; }
+    public bool IsPlayerUnreachable { get; private set; }
 
     private void Start()
     {
@@ -30,10 +33,17 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        if (IsPlayerSeen = IsPlayerInViewRange())
+        print(CheckGroundUnderFallingPoint());
+
+        if (IsPlayerSeen = IsPlayerInViewRange() && CheckGroundUnderFallingPoint())
         {
             LastPlayerPositionX = _player.transform.position.x;
         }
+    }
+
+    private bool CheckGroundUnderFallingPoint()
+    {
+        return Physics2D.Raycast(_fallingPoint.position, Vector2.down, 1, _obstacleMask);
     }
 
     private bool IsPlayerInViewRange()
