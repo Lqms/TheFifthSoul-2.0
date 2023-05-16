@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyIdleTransition : EnemyTransition
 {
+    [SerializeField] private Transform _fallingPoint;
+    [SerializeField] private LayerMask _obstacleMask;
+
     private void OnEnable()
     {
         EnemyController.Player.Died += OnPlayerDied;
@@ -22,6 +25,13 @@ public class EnemyIdleTransition : EnemyTransition
             print(transform.parent.position.x);
             NeedTransit = true;
         }
+
+        // это все в енеми контроллере
+        var grounds = Physics2D.OverlapCircleAll(_fallingPoint.position, 0.2f, _obstacleMask);
+        print(grounds.Length);
+
+        if (grounds.Length == 0)
+            NeedTransit = true;
     }
 
     private void OnPlayerDied()
