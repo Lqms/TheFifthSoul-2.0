@@ -17,7 +17,8 @@ public class EnemyIdleTransition : EnemyTransition
 
     private void Update()
     {
-        if (Mathf.Abs(transform.parent.position.x - EnemyController.LastPlayerPositionX) <= 0.1f && EnemyController.IsPlayerSeen == false)
+        if ((Mathf.Abs(transform.parent.position.x - EnemyController.LastPlayerPositionX) <= 0.1f && EnemyController.IsPlayerSeen == false) ||
+            EnemyController.IsPlayerReachable == false)
         {
             NeedTransit = true;
         }

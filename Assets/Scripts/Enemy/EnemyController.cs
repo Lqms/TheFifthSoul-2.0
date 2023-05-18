@@ -24,7 +24,7 @@ public class EnemyController : MonoBehaviour
     public float AttackRange => _attackRange;
     public float LastPlayerPositionX { get; private set; }
     public bool IsPlayerSeen { get; private set; }
-    public bool IsPlayerUnreachable { get; private set; }
+    public bool IsPlayerReachable { get; private set; }
 
     private void Start()
     {
@@ -35,7 +35,7 @@ public class EnemyController : MonoBehaviour
     {
         print(CheckGroundUnderFallingPoint());
 
-        if (IsPlayerSeen = IsPlayerInViewRange() && CheckGroundUnderFallingPoint())
+        if (IsPlayerInViewRange() && CheckGroundUnderFallingPoint())
         {
             LastPlayerPositionX = _player.transform.position.x;
         }
@@ -43,7 +43,8 @@ public class EnemyController : MonoBehaviour
 
     private bool CheckGroundUnderFallingPoint()
     {
-        return Physics2D.Raycast(_fallingPoint.position, Vector2.down, 1, _obstacleMask);
+        IsPlayerReachable = Physics2D.Raycast(_fallingPoint.position, Vector2.down, 1, _obstacleMask);
+        return IsPlayerReachable;
     }
 
     private bool IsPlayerInViewRange()
@@ -57,10 +58,12 @@ public class EnemyController : MonoBehaviour
 
             if (Physics2D.Raycast(transform.position, directionToTarget, distanceToTarget, _obstacleMask) == false)
             {
+                IsPlayerSeen = true;
                 return true;
             }
         }
 
+        IsPlayerSeen = false;
         return false;
     }
 }

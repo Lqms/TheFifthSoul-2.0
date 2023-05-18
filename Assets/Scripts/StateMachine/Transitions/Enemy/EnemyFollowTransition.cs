@@ -11,7 +11,7 @@ public class EnemyFollowTransition : EnemyTransition
 
         bool isPlayerInAttackRange = Mathf.Abs(EnemyController.Player.transform.position.x - transform.parent.position.x) <= EnemyController.AttackRange;
 
-        if (Mathf.Abs(transform.parent.position.x - EnemyController.LastPlayerPositionX) >= 0.1f && isPlayerInAttackRange == false)
+        if (Mathf.Abs(transform.parent.position.x - EnemyController.LastPlayerPositionX) >= 0.1f && isPlayerInAttackRange == false && EnemyController.IsPlayerReachable)
         {
             NeedTransit = true;
         }
