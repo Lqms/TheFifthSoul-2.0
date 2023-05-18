@@ -25,10 +25,12 @@ public class EnemyController : MonoBehaviour
     public float LastPlayerPositionX { get; private set; }
     public bool IsPlayerSeen { get; private set; }
     public bool IsPlayerReachable { get; private set; }
+    public Vector3 StartingPoint { get; private set; }
 
     private void Start()
     {
         LastPlayerPositionX = transform.position.x;
+        StartingPoint = transform.position;
     }
 
     private void Update()
@@ -43,7 +45,9 @@ public class EnemyController : MonoBehaviour
 
     private bool CheckGroundUnderFallingPoint()
     {
-        IsPlayerReachable = Physics2D.Raycast(_fallingPoint.position, Vector2.down, 1, _obstacleMask);
+        float x = LastPlayerPositionX > transform.position.x ? 0.7f : -0.7f;
+        IsPlayerReachable = Physics2D.Raycast(transform.position + new Vector3(x, -0.7f), Vector2.down, 1, _obstacleMask);
+
         return IsPlayerReachable;
     }
 
