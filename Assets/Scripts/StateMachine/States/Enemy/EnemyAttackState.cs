@@ -49,7 +49,12 @@ public class EnemyAttackState : EnemyState
         var collisions = Physics2D.OverlapCircleAll(_attackPoint.position, attackRange);
 
         foreach (var collision in collisions)
+        {
             if (collision.TryGetComponent(out Health health) && collision.TryGetComponent(out Enemy player) == false)
-                health.ApplyDamage(1);
+            {
+                Vector2 pushDirection = transform.position.x > health.transform.position.x ? Vector2.left : Vector2.right;
+                health.ApplyDamage(1, pushDirection);
+            }
+        }
     }
 }
