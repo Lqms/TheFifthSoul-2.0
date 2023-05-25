@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float _attackRange = 1;
     [SerializeField] private float _detectionRange = 5;
     [SerializeField] private float _movementSpeed = 1;
+    [SerializeField] private float _rangedAttackRange = 10;
     [SerializeField] private Transform _rayPoint;
 
     [SerializeField] private Transform _fallingPoint;
@@ -22,6 +23,10 @@ public class EnemyController : MonoBehaviour
     public Player Player => _player;
     public float MovementSpeed => _movementSpeed;
     public float AttackRange => _attackRange;
+    public float RangedAttackRange => _rangedAttackRange;
+    public Transform RayPoint => _rayPoint;
+    public LayerMask PlayerMask => _playerMask;
+    public LayerMask ObstacleMask => _obstacleMask;
     public float LastPlayerPositionX { get; private set; }
     public bool IsPlayerSeen { get; private set; }
     public bool IsPlayerReachable { get; private set; }
