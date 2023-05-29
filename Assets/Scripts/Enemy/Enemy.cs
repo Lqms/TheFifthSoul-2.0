@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Player : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     [SerializeField] private Health _health;
 
@@ -22,6 +22,6 @@ public class Player : MonoBehaviour
     private void OnHealthOver()
     {
         Died?.Invoke();
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
