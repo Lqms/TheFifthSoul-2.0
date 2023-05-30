@@ -8,7 +8,6 @@ public class Health : MonoBehaviour
     [SerializeField] private float _max = 10;
     [SerializeField] private AudioClip _damageSFX;
 
-    private Rigidbody2D _rigidbody;
     private SpriteRenderer _spriteRenderer;
     private AudioSource _audioSource;
     private float _current;
@@ -22,18 +21,17 @@ public class Health : MonoBehaviour
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _audioSource = GetComponent<AudioSource>();
-        _rigidbody = GetComponent<Rigidbody2D>();
         _current = _max;
     }
 
-    public void ApplyDamage(float amount, Vector2 pushDirection)
+    public void ApplyDamage(float amount)
     {
         _current = Mathf.Clamp(_current - amount, 0, _current);
-        Damaged?.Invoke();
-        print(_current);
+
         StartCoroutine(ColorChanging());
         _audioSource.PlayOneShot(_damageSFX);
-        _rigidbody.AddForce((Vector2.up + pushDirection) * 10, ForceMode2D.Impulse);
+
+        Damaged?.Invoke();
 
         if (_current == 0)
             Over?.Invoke();

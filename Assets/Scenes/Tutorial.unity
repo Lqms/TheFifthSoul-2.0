@@ -1139,7 +1139,7 @@ GameObject:
   m_Component:
   - component: {fileID: 617622131}
   m_Layer: 0
-  m_Name: MainBranch
+  m_Name: GigaLobsterBranch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1158,7 +1158,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &631750304
 GameObject:
@@ -1204,6 +1204,7 @@ GameObject:
   - component: {fileID: 683672570}
   - component: {fileID: 683672574}
   - component: {fileID: 683672573}
+  - component: {fileID: 683672575}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Untagged
@@ -1291,7 +1292,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 683672569}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.46, y: -3.16, z: 0}
+  m_LocalPosition: {x: -3.11, y: -3.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1300,7 +1301,7 @@ Transform:
   - {fileID: 2063966315}
   - {fileID: 1104854923}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &683672573
 MonoBehaviour:
@@ -1323,10 +1324,9 @@ MonoBehaviour:
   _obstacleMask:
     serializedVersion: 2
     m_Bits: 512
-  _attackRange: 1
+  _attackRange: 5
   _detectionRange: 5
   _movementSpeed: 1
-  _rangedAttackRange: 10
   _rayPoint: {fileID: 631750305}
   _fallingPoint: {fileID: 1104854923}
 --- !u!114 &683672574
@@ -1341,7 +1341,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44f5832cb7b27dc47a331afd9e28f8e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: {fileID: 0}
+  _health: {fileID: 683672575}
+--- !u!114 &683672575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683672569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa440ea020ffdd64faf60ac65734f5b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _max: 10
+  _damageSFX: {fileID: 8300000, guid: 52d60c5283a4f3e4ca2a64b6cadbf370, type: 3}
 --- !u!1 &774169591
 GameObject:
   m_ObjectHideFlags: 0
@@ -2753,7 +2767,6 @@ MonoBehaviour:
   _attackRange: 1
   _detectionRange: 5
   _movementSpeed: 2
-  _rangedAttackRange: 10
   _rayPoint: {fileID: 1419255480}
   _fallingPoint: {fileID: 548876487}
 --- !u!114 &1231435902
@@ -4124,7 +4137,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718158915}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3174656afeae2ed48bdca6965f3b5010, type: 3}
   m_Name: 
@@ -4140,7 +4153,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718158915}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62187965d3d2a834881af6106911e6e2, type: 3}
   m_Name: 
@@ -4153,7 +4166,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718158915}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cecdb87ec940b8e4ebd65a69db3720d5, type: 3}
   m_Name: 
@@ -4169,7 +4182,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718158915}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cdeeaefabab83f45aee4c2a91124f5e, type: 3}
   m_Name: 
@@ -4182,7 +4195,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718158915}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdec16ab2d512624b98a2ea2fa445640, type: 3}
   m_Name: 
@@ -4195,7 +4208,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718158915}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8edc303f41d7cbc41a9facc28179cf9a, type: 3}
   m_Name: 
@@ -4204,7 +4217,8 @@ MonoBehaviour:
   _transitions:
   - {fileID: 1718158918}
   - {fileID: 1718158920}
-  _attackPoint: {fileID: 0}
+  _projectile: {fileID: 429726543625484621, guid: ce58f07705b82a743bc7187b2c4de5ff, type: 3}
+  _attackPoint: {fileID: 2063966315}
 --- !u!4 &1718158923
 Transform:
   m_ObjectHideFlags: 0
@@ -5534,7 +5548,7 @@ Transform:
   - {fileID: 1419255480}
   - {fileID: 548876487}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1624939873629867902
 GameObject:
@@ -5559,7 +5573,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1624939873629867903
 AudioSource:
   m_ObjectHideFlags: 0

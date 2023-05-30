@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyRangedAttackState : EnemyState
 {
+    [SerializeField] private Projectile _projectile;
     [SerializeField] private Transform _attackPoint;
 
     private Coroutine _coroutine;
@@ -44,6 +45,9 @@ public class EnemyRangedAttackState : EnemyState
 
     private void Attack()
     {
+        var projectile = Instantiate(_projectile);
+        var direction = EnemyController.Player.transform.position.x > transform.parent.position.x ? Vector2.right : Vector2.left;
 
+        projectile.Init(_attackPoint.position, direction, 1);
     }
 }

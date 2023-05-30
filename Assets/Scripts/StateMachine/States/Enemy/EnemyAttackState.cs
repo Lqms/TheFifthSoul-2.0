@@ -52,8 +52,7 @@ public class EnemyAttackState : EnemyState
         {
             if (collision.TryGetComponent(out Health health) && collision.TryGetComponent(out Enemy player) == false)
             {
-                Vector2 pushDirection = transform.position.x > health.transform.position.x ? Vector2.left : Vector2.right;
-                health.ApplyDamage(1, pushDirection);
+                health.ApplyDamage(1);
             }
         }
     }
