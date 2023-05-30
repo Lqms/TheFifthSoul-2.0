@@ -13,7 +13,8 @@ public class Projectile : MonoBehaviour
         _damage = shotPower;
         transform.position = position;
         _rigidbody.velocity = Vector2.zero;
-        _rigidbody.velocity = direction * shotPower;
+        _rigidbody.velocity = direction * shotPower * 10;
+        _rigidbody.rotation = direction == Vector2.right? 0 : 180;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

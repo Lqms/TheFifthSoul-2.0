@@ -29,6 +29,12 @@ public class EnemyRangedAttackState : EnemyState
         _coroutine = null;
     }
 
+    private void Update()
+    {
+        float rotation = EnemyController.LastPlayerPositionX > transform.position.x ? 0 : 180;
+        transform.parent.rotation = Quaternion.Euler(0, rotation, 0);
+    }
+
     private IEnumerator Attacking()
     {
         float delay = 0.01f;
