@@ -9,6 +9,8 @@ public class PlayerInput : MonoBehaviour
     public static KeyCode MoveRightKey = KeyCode.D;
     public static KeyCode JumpKey = KeyCode.Space;
     public static KeyCode DashKey = KeyCode.LeftShift;
+    public static KeyCode InteractKey = KeyCode.E;
+    public static KeyCode CloseActiveModalKey = KeyCode.Escape;
 
     public static float CheckMoveKeys()
     {
@@ -47,6 +49,26 @@ public class PlayerInput : MonoBehaviour
     public static bool CheckAttackKeyDown()
     {
         if (Input.GetKeyDown(AttackKey))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static bool CheckInteractKeyDown()
+    {
+        if (Input.GetKeyDown(InteractKey))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static bool CheckCloseActiveModalKeyDown()
+    {
+        if (Input.GetKeyDown(CloseActiveModalKey))
         {
             return true;
         }

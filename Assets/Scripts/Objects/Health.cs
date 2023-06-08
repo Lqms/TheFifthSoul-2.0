@@ -7,10 +7,12 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private float _max = 10;
     [SerializeField] private AudioClip _damageSFX;
+    [SerializeField] private ParticleSystem _damageVFX;
 
     private SpriteRenderer _spriteRenderer;
     private AudioSource _audioSource;
     private float _current;
+    private ParticleSystem _currentParticle;
 
     public float Current => _current;
 
@@ -42,5 +44,10 @@ public class Health : MonoBehaviour
         _spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         _spriteRenderer.color = Color.white;
+    }
+
+    private void SpawnDamagePErticles()
+    {
+        _currentParticle = Instantiate(_damageVFX, transform.position, Quaternion.identity);
     }
 }
