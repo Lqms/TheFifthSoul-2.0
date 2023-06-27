@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class DeathScreen : MonoBehaviour
 {
     [SerializeField] private Player _player;
-    [SerializeField] private Image _image;
+    [SerializeField] private Image _wrapper;
 
     private void OnEnable()
     {
@@ -20,6 +20,6 @@ public class DeathScreen : MonoBehaviour
 
     private void OnPlayerDied()
     {
-        
+        _wrapper.gameObject.SetActive(true);
     }
 }
