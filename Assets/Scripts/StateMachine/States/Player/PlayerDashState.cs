@@ -6,7 +6,10 @@ public class PlayerDashState : PlayerState
 {
     protected override void OnEnable()
     {
-        base.OnEnable();
+        if (PlayerController.CheckOnGround())
+            Animator.Play(AnimationNames.Roll.ToString());
+        else
+            base.OnEnable();
 
         PlayerController.Dash();
     }

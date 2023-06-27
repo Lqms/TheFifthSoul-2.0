@@ -602,7 +602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa440ea020ffdd64faf60ac65734f5b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _max: 1
+  _max: 100
   _damageSFX: {fileID: 8300000, guid: 8c5c81ab6f99811469b81f206ea0f72b, type: 3}
   _damageVFX: {fileID: 0}
 --- !u!70 &30913017
@@ -1031,7 +1031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &252844931
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9974,7 +9974,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2013849519
 Transform:
   m_ObjectHideFlags: 0
@@ -10076,6 +10076,7 @@ MonoBehaviour:
   - {fileID: 2013849529}
   - {fileID: 2013849531}
   - {fileID: 2013849522}
+  - {fileID: 2013849523}
 --- !u!114 &2013849526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11108,7 +11109,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1624939873629867903
 AudioSource:
   m_ObjectHideFlags: 0
