@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     public void Dash()
     {
-        _physics.Dash();
+        _physics.Dash(_animator);
     }
 
     public void ResetVelocity()

@@ -560,8 +560,8 @@ MonoBehaviour:
   _legs: {fileID: 2070214836}
   _legsRadius: 0.2
   _speed: 5
-  _dashPower: 25
-  _dashCooldown: 3
+  _dashPower: 50
+  _dashCooldown: 1
 --- !u!114 &30913014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9974,7 +9974,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2013849519
 Transform:
   m_ObjectHideFlags: 0

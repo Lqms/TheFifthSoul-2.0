@@ -37,9 +37,9 @@ public class PlayerPhysics : MonoBehaviour
         _rigidbody.velocity = new Vector2(direction * _speed, _rigidbody.velocity.y);
     }
 
-    public void Dash()
+    public void Dash(Animator animator)
     {
-        StartCoroutine(Dashing());
+        StartCoroutine(Dashing(animator));
     }
 
     public void ResetVelocity()
@@ -57,12 +57,19 @@ public class PlayerPhysics : MonoBehaviour
         _rigidbody.AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
     }
 
-    private IEnumerator Dashing()
+    private IEnumerator Dashing(Animator animator)
     {
+        float delay = 0.01f;
+
+        yield return new WaitForSeconds(delay);
+
+        float animationTime = animator.GetCurrentAnimatorStateInfo(0).length;
+        print(animationTime);
+
         _rigidbody.AddForce(Vector2.right * transform.localScale.x * _dashPower, ForceMode2D.Impulse);
         CanDash = false;
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(animationTime);
 
         _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y);
 
