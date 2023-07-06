@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyArea : MonoBehaviour
 {
     private Rect _area;
+    public bool inArea { get; private set; }
 
     private void Start()
     {
@@ -16,6 +17,7 @@ public class EnemyArea : MonoBehaviour
 
         _area = new Rect(area.bounds.min.x, area.bounds.min.y, width, height);
         // Destroy(area);
+        inArea = true;
     }
 
     private void Update()
@@ -26,10 +28,12 @@ public class EnemyArea : MonoBehaviour
             || transform.position.y <= _area.min.y)
         {
             print("out of area");
+            inArea = false;
         }
         else
         {
             print("in area");
+            inArea = true;
         }
     }
 }

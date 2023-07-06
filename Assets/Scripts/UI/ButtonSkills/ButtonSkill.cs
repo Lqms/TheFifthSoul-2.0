@@ -9,7 +9,6 @@ public class ButtonSkill : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 {
     [SerializeField] private ButtonSkillData _data;
     [SerializeField] private ButtonSkill[] _openningSkills;
-    [SerializeField] private Image[] _openningLinks;
 
     [Header("Components")]
     [SerializeField] private Image _infoPanel;
@@ -53,10 +52,10 @@ public class ButtonSkill : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         if (_currentSkillLevel == _maxLevel)
         {
             foreach (var skill in _openningSkills)
+            {
                 skill.Activate();
-
-            foreach (var link in _openningLinks)
-                link.color = Color.yellow;
+                CreateRay(skill.transform.position);
+            }
 
             _button.interactable = false;
         }
@@ -79,5 +78,16 @@ public class ButtonSkill : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         _button.interactable = true;
         _icon.color = Color.white;
         _levelPanel.gameObject.SetActive(true);
+    }
+
+    private void CreateRay(Vector3 target)
+    {
+        GameObject lineObj = new GameObject($"Ray {gameObject.name}");
+        var line = lineObj.AddComponent<LineRenderer>();
+        line.transform.parent = transform;
+
+        line.widthMultiplier = 0.2f;
+        line.SetPosition(0, transform.position);
+        line.SetPosition(1, target);
     }
 }

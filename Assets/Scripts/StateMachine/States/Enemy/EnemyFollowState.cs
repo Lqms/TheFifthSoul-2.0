@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyFollowState : EnemyState
 {
+
     private void Update()
     {
         Vector3 moveVector = transform.parent.position;
@@ -13,4 +14,5 @@ public class EnemyFollowState : EnemyState
         float rotation = EnemyController.LastPlayerPositionX > transform.position.x ? 0 : 180;
         transform.parent.rotation = Quaternion.Euler(0, rotation, 0);
     }
+
 }

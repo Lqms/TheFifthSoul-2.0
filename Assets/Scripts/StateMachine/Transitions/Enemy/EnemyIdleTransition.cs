@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyIdleTransition : EnemyTransition
 {
+    [SerializeField] private EnemyArea _enemeyArea;
+
     private void OnEnable()
     {
         EnemyController.Player.Died += OnPlayerDied;
@@ -21,6 +23,12 @@ public class EnemyIdleTransition : EnemyTransition
             EnemyController.IsPlayerReachable == false)
         {
             NeedTransit = true;
+        }
+
+        if (_enemeyArea.inArea == false)
+        {
+            NeedTransit = true;
+            print("suck some dick");
         }
     }
 
