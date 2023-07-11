@@ -863,7 +863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: b294f803b813af14f8964dc11a294dff, type: 2}
   _openningSkills: []
-  _openningLinks: []
+  _rayPrefab: {fileID: 4756507023018926390, guid: 232e7e40f5b825a4ebe51196be23c260, type: 3}
   _infoPanel: {fileID: 4255594865703991656}
   _levelPanel: {fileID: 7643820152448656701}
   _button: {fileID: 9004492522364846126}

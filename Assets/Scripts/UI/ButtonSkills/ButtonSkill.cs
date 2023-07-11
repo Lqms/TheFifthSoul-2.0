@@ -9,6 +9,7 @@ public class ButtonSkill : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 {
     [SerializeField] private ButtonSkillData _data;
     [SerializeField] private ButtonSkill[] _openningSkills;
+    [SerializeField] private LineRenderer _rayPrefab;
 
     [Header("Components")]
     [SerializeField] private Image _infoPanel;
@@ -82,12 +83,24 @@ public class ButtonSkill : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private void CreateRay(Vector3 target)
     {
-        GameObject lineObj = new GameObject($"Ray {gameObject.name}");
-        var line = lineObj.AddComponent<LineRenderer>();
-        line.transform.parent = transform;
+        StartCoroutine(LineRendering(target));
+    }
 
+    private IEnumerator LineRendering(Vector3 target)
+    {
+        var line = Instantiate(_rayPrefab, transform);
         line.widthMultiplier = 0.2f;
         line.SetPosition(0, transform.position);
-        line.SetPosition(1, target);
+
+        Vector3 currentPoint = transform.position;
+        float speed = 10;
+
+        while  (currentPoint != target)
+        {
+            currentPoint = Vector3.MoveTowards(currentPoint, target, Time.deltaTime * speed);
+            line.SetPosition(1, currentPoint);
+
+            yield return null;
+        }
     }
 }
